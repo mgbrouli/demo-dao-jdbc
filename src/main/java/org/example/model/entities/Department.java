@@ -1,4 +1,4 @@
-package org.example.models.entities;
+package org.example.model.entities;
 
 import java.io.Serial;
 import java.io.Serializable;
