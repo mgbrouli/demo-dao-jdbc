@@ -1,6 +1,5 @@
 package org.example.model.dao.impl;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
 import org.example.db.DB;
 import org.example.db.DbException;
 import org.example.model.dao.SellerDao;
@@ -88,7 +87,17 @@ public class SellerDaoJDBC implements SellerDao {
 
     @Override
     public void deleteById(Integer id) {
+        PreparedStatement st = null;
+        try{
+            st = conn.prepareStatement("DELETE FROM seller WHERE Id = ?");
+            st.setInt(1, id);
+            st.executeUpdate();
 
+        }catch (SQLException e){
+            throw  new DbException(e.getMessage());
+        }finally {
+            DB.closeStatement(st);
+        }
     }
 
     @Override
