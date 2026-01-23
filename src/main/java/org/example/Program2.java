@@ -27,5 +27,7 @@ public class Program2 {
         departmentDao.deleteById(11);
         System.out.println("Delete for id's 9, 10 e 11");
 
+        System.out.println("\n=== TEST 4: Department FindByID ===");
+        System.out.println("Find by id 1"+ departmentDao.findById(2));
     }
 }
